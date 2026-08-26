@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranjith Kumar - UI/UX Designer Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #121212;
+      color: #959595;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Typography */
+    h1 { font-size: 70px; font-weight: 900; letter-spacing: 2.1px; }
+    h2 { font-size: 40px; font-weight: 700; letter-spacing: 1.2px; color: #fefefe; }
+    h3 { font-size: 24px; font-weight: 700; letter-spacing: 0.72px; }
+    p { font-size: 20px; font-weight: 500; letter-spacing: 0.6px; }
+
+    /* Gradients */
+    .gradient-orange {
+      background: linear-gradient(104deg, #fd6f00 3%, #e46400 94.5%);
+    }
+
+    .gradient-text-orange {
+      background: linear-gradient(93deg, #983400 0.3%, #fd6f00 42%, #ca5900 90.3%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Container & Spacing */
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 80px;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 20px; }
+      h1 { font-size: 40px; }
+      h2 { font-size: 28px; }
+      h3 { font-size: 18px; }
+      p { font-size: 16px; }
+    }
+
+    /* Header/Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 80px;
+      position: sticky;
+      top: 0;
+      background: rgba(18, 18, 18, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+        flex-wrap: wrap;
+      }
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      background: rgba(253, 111, 0, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #fd6f00;
+      font-size: 24px;
+    }
+
+    nav {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #959595;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: 0.6px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #fd6f00;
+    }
+
+    .btn {
+      padding: 12px 40px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      letter-spacing: 0.48px;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(104deg, #fd6f00 3%, #e46400 94.5%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(253, 111, 0, 0.3);
+    }
+
+    .btn-secondary {
+      border: 2px solid #959595;
+      color: #959595;
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      border-color: #fd6f00;
+      color: #fd6f00;
+    }
+
+    .btn-lg {
+      padding: 12px 40px;
+      font-size: 20px;
+      letter-spacing: 0.6px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        gap: 20px;
+        font-size: 14px;
+      }
+      header { flex-direction: column; }
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 0;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-subtitle {
+      font-size: 24px;
+      font-weight: 600;
+      color: #707070;
+      letter-spacing: 0.72px;
+      margin-bottom: 10px;
+    }
+
+    .hero-name {
+      font-size: 28px;
+      font-weight: 700;
+      color: #959595;
+      letter-spacing: 0.84px;
+      margin-bottom: 17px;
+    }
+
+    .hero-title {
+      font-size: 70px;
+      font-weight: 900;
+      letter-spacing: 2.1px;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin: 40px 0;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .social-icon:hover {
+      background: rgba(253, 111, 0, 0.3);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .stats {
+      display: flex;
+      gap: 30px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 24px;
+      border-radius: 8px;
+      margin-top: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-item {
+      border-right: 2px solid #959595;
+      padding-right: 30px;
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fd6f00;
+      letter-spacing: 0.72px;
+    }
+
+    .stat-label {
+      font-size: 20px;
+      font-weight: 700;
+      color: #dfdfdf;
+      letter-spacing: 0.6px;
+      margin-top: 12px;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 50%;
+      box-shadow: 0 0 60px rgba(253, 111, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        padding: 40px 0;
+      }
+      .hero-title { font-size: 40px; }
+      .hero-image { margin-top: 40px; }
+      .hero-buttons { flex-direction: column; }
+      .stats { flex-direction: column; gap: 20px; }
+      .stat-item { border-right: none; border-bottom: 2px solid #959595; padding-right: 0; padding-bottom: 20px; }
+    }
+
+    /* Services Section */
+    .services {
+      padding: 150px 0;
+      text-align: center;
+    }
+
+    .section-title {
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      font-size: 20px;
+      color: #707070;
+      letter-spacing: 0.6px;
+      line-height: 1.6;
+      margin-bottom: 80px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 34px;
+      border-radius: 24px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .service-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-10px);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 16px;
+      background: rgba(253, 111, 0, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fd6f00;
+      letter-spacing: 0.72px;
+      margin: 16px 0;
+    }
+
+    .service-desc {
+      font-size: 20px;
+      color: #575757;
+      line-height: 1.6;
+    }
+
+    /* About Section */
+    .about {
+      padding: 150px 0;
+    }
+
+    .about-content {
+      display: flex;
+      gap: 101px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    .about-image {
+      flex: 0 0 auto;
+      width: 523px;
+      height: 676px;
+      background: linear-gradient(135deg, rgba(253, 111, 0, 0.1) 0%, rgba(253, 111, 0, 0.05) 100%);
+      border-radius: 261.5px 261.5px 12px 12px;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text p {
+      color: #959595;
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .skill-item {
+      text-align: center;
+    }
+
+    .skill-progress {
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 24px;
+      background: conic-gradient(#fd6f00 0deg, #fd6f00 330deg, rgba(255, 255, 255, 0.1) 330deg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .skill-progress::before {
+      content: '';
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      background: #121212;
+      border-radius: 50%;
+    }
+
+    .skill-percent {
+      font-size: 30px;
+      font-weight: 700;
+      z-index: 1;
+      background: linear-gradient(99deg, #fd6f00 3%, #e46400 94.5%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .skill-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #959595;
+    }
+
+    @media (max-width: 768px) {
+      .about { padding: 80px 0; }
+      .about-content { flex-direction: column; gap: 40px; }
+      .about-image { width: 100%; height: auto; }
+      .skills-container { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Portfolio Section */
+    .portfolio {
+      padding: 150px 0;
+      text-align: center;
+    }
+
+    .portfolio-filters {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin: 40px 0 80px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 14px 40px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #c6c6c6;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(98deg, #fd6f00 3%, #e46400 94.5%);
+      color: white;
+    }
+
+    .filter-btn:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .portfolio-item {
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.04);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .portfolio-item:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .portfolio-image {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(253, 111, 0, 0.1), rgba(228, 100, 0, 0.1));
+      border-radius: 28px 28px 0 0;
+    }
+
+    .portfolio-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portfolio-info {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .portfolio-name {
+      color: #c6c6c6;
+    }
+
+    .portfolio-category {
+      color: #959595;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 150px 0;
+      text-align: center;
+    }
+
+    .contact-subtitle {
+      font-size: 20px;
+      color: #707070;
+      line-height: 1.6;
+      margin-bottom: 80px;
+    }
+
+    .contact-form {
+      max-width: 1012px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .form-row.full {
+      grid-template-columns: 1fr;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px 24px;
+      border-radius: 8px;
+      color: #959595;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .form-input::placeholder,
+    .form-select,
+    .form-textarea::placeholder {
+      color: #707070;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #fd6f00;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 162px;
+      padding: 14px 24px;
+    }
+
+    .form-submit {
+      align-self: flex-end;
+    }
+
+    .form-message {
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: none;
+      font-weight: 600;
+    }
+
+    .form-message.success {
+      background: rgba(76, 175, 80, 0.2);
+      color: #4caf50;
+      border: 1px solid rgba(76, 175, 80, 0.3);
+    }
+
+    .form-message.error {
+      background: rgba(244, 67, 54, 0.2);
+      color: #f44336;
+      border: 1px solid rgba(244, 67, 54, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      .form-submit {
+        align-self: stretch;
+      }
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(255, 255, 255, 0.04);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 40px 80px 24px;
+      margin-top: 150px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 50px;
+      padding-bottom: 50px;
+    }
+
+    .footer-logo {
+      width: 44px;
+      height: 44px;
+      background: rgba(253, 111, 0, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #fd6f00;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 60px;
+      justify-content: center;
+    }
+
+    .footer-nav a {
+      color: #959595;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .footer-nav a:hover {
+      color: #fd6f00;
+    }
+
+    .footer-contact {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #707070;
+      padding-top: 16px;
+      text-align: center;
+      color: #707070;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      footer { padding: 40px 20px 24px; }
+      .footer-nav { gap: 20px; font-size: 14px; }
+      .footer-contact { gap: 20px; }
+    }
+
+    /* Loading & Messages */
+    .loading {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fd6f00;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header/Navigation -->
+  <header>
+    <div class="logo">R</div>
+    <nav>
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#about" class="nav-link">About me</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#contact" class="nav-link">Contact me</a>
+    </nav>
+    <button class="btn btn-primary">Hire Me</button>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero container">
+    <div class="hero-content">
+      <p class="hero-subtitle">Hi I am</p>
+      <p class="hero-name">Ranjith Kumar</p>
+      <h1 class="gradient-text-orange">UI/UX designer</h1>
+      <div class="social-links">
+        <div class="social-icon">f</div>
+        <div class="social-icon">in</div>
+        <div class="social-icon">d</div>
+        <div class="social-icon">tw</div>
+      </div>
+      <div class="hero-buttons">
+        <button class="btn btn-primary btn-lg">Hire Me</button>
+        <button class="btn btn-secondary btn-lg">Download CV</button>
+      </div>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">1yr+</div>
+          <div class="stat-label">Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Project done</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div style="width: 300px; height: 300px; background: linear-gradient(135deg, rgba(253, 111, 0, 0.2), rgba(228, 100, 0, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+        <span style="color: #707070; font-size: 14px;">Portfolio Image</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services container">
+    <h2 class="section-title">Services</h2>
+    <p class="section-subtitle">Creating intuitive and engaging digital experiences through research, wireframing, prototyping, and user-centered design.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">👥</div>
+        <h3 class="service-title">UI/UX Design</h3>
+        <p class="service-desc">Creating intuitive and engaging digital experiences through research, wireframing, prototyping, and user-centered design.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3 class="service-title">Website Design</h3>
+        <p class="service-desc">Designing responsive, modern, and conversion-focused websites that elevate brands and improve user engagement.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3 class="service-title">Graphic Design</h3>
+        <p class="service-desc">Developing creative visual solutions for branding, marketing materials, social media, and print production.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about container">
+    <div style="text-align: center; margin-bottom: 80px;">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">Designing Experiences That Matter</p>
+    </div>
+    <div class="about-content">
+      <div class="about-image">
+        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(253, 111, 0, 0.2), rgba(228, 100, 0, 0.1)); display: flex; align-items: center; justify-content: center;">
+          <span style="color: #707070;">About Image</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p>I'm a passionate UI/UX Designer and Graphic Designer with experience creating user-centered digital products, branding solutions, and responsive web experiences. With a strong foundation in design thinking, visual storytelling, and user research, I focus on crafting interfaces that are functional, elegant, and impactful. My goal is simple: create meaningful experiences that solve real problems while maintaining exceptional visual quality.</p>
+        <button class="btn btn-primary btn-lg" style="gap: 10px; display: inline-flex; align-items: center;">
+          <span>⬇</span> Download CV
+        </button>
+      </div>
+    </div>
+    <div class="skills-container">
+      <div class="skill-item">
+        <div class="skill-progress">
+          <span class="skill-percent">100%</span>
+        </div>
+        <p class="skill-name">Figma</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-progress">
+          <span class="skill-percent">100%</span>
+        </div>
+        <p class="skill-name">Adobe XD</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-progress">
+          <span class="skill-percent">95%</span>
+        </div>
+        <p class="skill-name">Adobe Photoshop</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-progress">
+          <span class="skill-percent">80%</span>
+        </div>
+        <p class="skill-name">Adobe Illustrator</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-progress">
+          <span class="skill-percent">95%</span>
+        </div>
+        <p class="skill-name">Canva</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio container">
+    <h2 class="section-title">Portfolio</h2>
+    <div class="portfolio-filters">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Website design</button>
+      <button class="filter-btn">App mobile design</button>
+      <button class="filter-btn">Dashboard Design</button>
+      <button class="filter-btn">Graphic Design</button>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-image"></div>
+        <div class="portfolio-info">
+          <span class="portfolio-name">Name Project</span>
+          <span class="portfolio-category">Categories</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact container">
+    <h2 class="section-title">Contact me</h2>
+    <p class="contact-subtitle">Cultivating Connections: Reach Out and Connect with Me</p>
+    <form class="contact-form" id="contactForm">
+      <div class="form-row">
+        <div class="form-group">
+          <input type="text" class="form-input" id="nameInput" placeholder="Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-input" id="emailInput" placeholder="Email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <input type="tel" class="form-input" id="phoneInput" placeholder="Phone Number" required>
+        </div>
+      </div>
+      <div class="form-row full">
+        <div class="form-submit">
+          <button type="submit" class="btn btn-secondary btn-lg" style="border: 2px solid #959595;">Send</button>
+        </div>
+      </div>
+      <div class="form-message" id="formMessage"></div>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-logo">R</div>
+      <nav class="footer-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About me</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact me</a>
+      </nav>
+    </div>
+    <div class="footer-contact">
+      <div class="contact-item">
+        <span>✉</span>
+        <span>ranjithkumar35105@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <span>📞</span>
+        <span>+91 93454 16467</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Designed by Ranjith UI/UX designer
+    </div>
+  </footer>
+
+  <script>
+    // AppScript deployment URL
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyGiC4M1c4fBU2mdW6Tl_zmTiyWMXtlXDmYquYmDAEE29kzjv5c54NlrkS1wyjvUQQp/exec';
+
+    // Form handling
+    const contactForm = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    const nameInput = document.getElementById('nameInput');
+    const emailInput = document.getElementById('emailInput');
+    const phoneInput = document.getElementById('phoneInput');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitForm();
+    });
+
+    function submitForm() {
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const phone = phoneInput.value.trim();
+
+      // Validation
+      if (!name || !email || !phone) {
+        showError('Please fill in all fields');
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        showError('Please enter a valid email address');
+        return;
+      }
+
+      // Show loading state
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      // Use POST request with form data
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', phone);
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData
+      })
+        .then(() => {
+          // Success - wait a moment then show message
+          setTimeout(() => {
+            showSuccess('Thank you! Your message has been sent successfully. We will contact you soon.');
+            contactForm.reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }, 800);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          showError('There was an error sending your message. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        });
+    }
+
+    function isValidEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function showSuccess(message) {
+      formMessage.textContent = message;
+      formMessage.className = 'form-message success';
+      formMessage.style.display = 'block';
+      setTimeout(() => {
+        formMessage.style.display = 'none';
+      }, 5000);
+    }
+
+    function showError(message) {
+      formMessage.textContent = message;
+      formMessage.className = 'form-message error';
+      formMessage.style.display = 'block';
+    }
+
+    // Navigation active state
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Smooth scroll behavior for navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section[id]');
+      
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href').slice(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
